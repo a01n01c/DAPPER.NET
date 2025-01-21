@@ -10,7 +10,20 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:GridView ID="gdVehiculos" runat="server" AutoGenerateColumns="False" DataSourceID="tVehiculos" AllowPaging="True" DataKeyNames="id_vehiculo">
+                <Columns>
+                    <asp:BoundField DataField="id_vehiculo" HeaderText="id_vehiculo" ReadOnly="True" SortExpression="id_vehiculo" />
+                    <asp:BoundField DataField="id_modelo" HeaderText="id_modelo" SortExpression="id_modelo" />
+                    <asp:BoundField DataField="color" HeaderText="color" SortExpression="color" />
+                    <asp:BoundField DataField="precio" HeaderText="precio" SortExpression="precio" />
+                    <asp:BoundField DataField="anio" HeaderText="anio" SortExpression="anio" />
+                    <asp:CheckBoxField DataField="disponible" HeaderText="disponible" SortExpression="disponible" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                </Columns>
+            </asp:GridView>
         </div>
+        <asp:EntityDataSource ID="tVehiculos" runat="server" ConnectionString="name=ConcesionariosEntities" DefaultContainerName="ConcesionariosEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="Vehiculos">
+        </asp:EntityDataSource>
     </form>
 </body>
 </html>
